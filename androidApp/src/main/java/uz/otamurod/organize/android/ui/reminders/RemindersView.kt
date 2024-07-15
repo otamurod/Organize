@@ -17,45 +17,45 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun RemindersView(
-  onAboutButtonClick: () -> Unit,
+    onAboutButtonClick: () -> Unit,
 ) {
-  Column {
-    Toolbar(onAboutButtonClick = onAboutButtonClick)
-    ContentView()
-  }
+    Column {
+        Toolbar(onAboutButtonClick = onAboutButtonClick)
+        ContentView()
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun Toolbar(
-  onAboutButtonClick: () -> Unit,
+    onAboutButtonClick: () -> Unit,
 ) {
-  TopAppBar(
-    title = { Text(text = "Reminders") },
-    actions = {
-      IconButton(onClick = onAboutButtonClick) {
-        Icon(
-          imageVector = Icons.Outlined.Info,
-          contentDescription = "About Device Button",
-        )
-      }
-    }
-  )
+    TopAppBar(
+        title = { Text(text = "Reminders") },
+        actions = {
+            IconButton(onClick = onAboutButtonClick) {
+                Icon(
+                    imageVector = Icons.Outlined.Info,
+                    contentDescription = "About Device Button",
+                )
+            }
+        }
+    )
 }
 
 @Composable
 private fun ContentView() {
-  Box(
-    modifier = Modifier.fillMaxSize(),
-    contentAlignment = Alignment.Center
-  ) {
-    Text("Hello World!")
-  }
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text("Hello World!")
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun RemindersViewPreview() {
-  RemindersView {
-  }
+    RemindersView {
+    }
 }

@@ -13,30 +13,30 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun AboutView(
-  onUpButtonClick: () -> Unit
+    onUpButtonClick: () -> Unit
 ) {
-  Column {
-    Toolbar(onUpButtonClick = onUpButtonClick)
-    ContentView()
-  }
+    Column {
+        Toolbar(onUpButtonClick = onUpButtonClick)
+        ContentView()
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun Toolbar(
-  onUpButtonClick: () -> Unit,
+    onUpButtonClick: () -> Unit,
 ) {
-  TopAppBar(
-    title = { Text(text = "About Device") },
-    navigationIcon = {
-      IconButton(onClick = onUpButtonClick) {
-        Icon(
-          imageVector = Icons.Default.ArrowBack,
-          contentDescription = "Up Button",
-        )
-      }
-    }
-  )
+    TopAppBar(
+        title = { Text(text = "About Device") },
+        navigationIcon = {
+            IconButton(onClick = onUpButtonClick) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = "Up Button",
+                )
+            }
+        }
+    )
 }
 
 @Composable
@@ -46,6 +46,6 @@ private fun ContentView() {
 @Preview(showBackground = true)
 @Composable
 private fun AboutPreview() {
-  AboutView {
-  }
+    AboutView {
+    }
 }

@@ -13,33 +13,33 @@ import ui.reminders.RemindersView
 import ui.theme.AppTheme
 
 fun main() {
-  return application {
-    var screenState by remember { mutableStateOf(Screen.Reminders) }
-
-    AppTheme {
-      Window(
-        title = "Organize",
-        state = rememberWindowState(width = 400.dp, height = 550.dp),
-        resizable = true,
-        onCloseRequest = ::exitApplication,
-      ) {
-        RemindersView(
-          onAboutIconClick = { screenState = Screen.AboutDevice }
-        )
-      }
-
-      if (screenState == Screen.AboutDevice) {
-        Window(
-          title = "About Device",
-          state = WindowState(width = 300.dp, height = 450.dp),
-          resizable = true,
-          onCloseRequest = {
-            screenState = Screen.Reminders
-          },
-        ) {
-          AboutView()
+    return application {
+        var screenState by remember { mutableStateOf(Screen.Reminders) }
+        
+        AppTheme {
+            Window(
+                title = "Organize",
+                state = rememberWindowState(width = 400.dp, height = 550.dp),
+                resizable = true,
+                onCloseRequest = ::exitApplication,
+            ) {
+                RemindersView(
+                    onAboutIconClick = { screenState = Screen.AboutDevice }
+                )
+            }
+            
+            if (screenState == Screen.AboutDevice) {
+                Window(
+                    title = "About Device",
+                    state = WindowState(width = 300.dp, height = 450.dp),
+                    resizable = true,
+                    onCloseRequest = {
+                        screenState = Screen.Reminders
+                    },
+                ) {
+                    AboutView()
+                }
+            }
         }
-      }
     }
-  }
 }

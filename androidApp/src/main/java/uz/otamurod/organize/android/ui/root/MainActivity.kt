@@ -9,23 +9,23 @@ import uz.otamurod.organize.android.R
 import uz.otamurod.organize.android.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    setTheme(R.style.AppTheme)
-
-    super.onCreate(savedInstanceState)
-
-    setContent {
-      AppTheme {
-        AppScaffold()
-      }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
+        
+        super.onCreate(savedInstanceState)
+        
+        setContent {
+            AppTheme {
+                AppScaffold()
+            }
+        }
     }
-  }
 }
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun DefaultPreview() {
-  AppTheme {
-    AppScaffold()
-  }
+    AppTheme {
+        AppScaffold()
+    }
 }
