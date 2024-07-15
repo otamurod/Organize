@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import uz.otamurod.organize.Logger
 import uz.otamurod.organize.android.R
 import uz.otamurod.organize.android.ui.theme.AppTheme
 
@@ -19,6 +20,7 @@ class MainActivity : ComponentActivity() {
                 AppScaffold()
             }
         }
+        Logger.log("MainActivity is launched")
     }
 }
 

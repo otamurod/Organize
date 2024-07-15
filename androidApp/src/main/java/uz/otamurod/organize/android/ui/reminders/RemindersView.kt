@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import uz.otamurod.organize.Logger
 
 @Composable
 fun RemindersView(
@@ -33,7 +34,10 @@ private fun Toolbar(
     TopAppBar(
         title = { Text(text = "Reminders") },
         actions = {
-            IconButton(onClick = onAboutButtonClick) {
+            IconButton(onClick = {
+                onAboutButtonClick()
+                Logger.log("Navigating to About Device Screen")
+            }) {
                 Icon(
                     imageVector = Icons.Outlined.Info,
                     contentDescription = "About Device Button",

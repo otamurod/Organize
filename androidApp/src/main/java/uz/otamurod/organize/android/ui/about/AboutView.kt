@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import uz.otamurod.organize.Logger
 import uz.otamurod.organize.Platform
 import kotlin.math.max
 import kotlin.math.min
@@ -42,7 +43,10 @@ private fun Toolbar(
     TopAppBar(
         title = { Text(text = "About Device") },
         navigationIcon = {
-            IconButton(onClick = onUpButtonClick) {
+            IconButton(onClick = {
+                onUpButtonClick()
+                Logger.log("Navigating Up")
+            }) {
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
                     contentDescription = "Up Button",

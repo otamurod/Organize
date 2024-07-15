@@ -7,10 +7,11 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import uz.otamurod.organize.presentation.Screen
 import ui.about.AboutView
 import ui.reminders.RemindersView
 import ui.theme.AppTheme
+import uz.otamurod.organize.Logger
+import uz.otamurod.organize.presentation.Screen
 
 fun main() {
     return application {
@@ -24,7 +25,10 @@ fun main() {
                 onCloseRequest = ::exitApplication,
             ) {
                 RemindersView(
-                    onAboutIconClick = { screenState = Screen.AboutDevice }
+                    onAboutIconClick = {
+                        screenState = Screen.AboutDevice
+                        Logger.log("Navigating to About Device Window\n")
+                    }
                 )
             }
             
@@ -35,11 +39,13 @@ fun main() {
                     resizable = true,
                     onCloseRequest = {
                         screenState = Screen.Reminders
+                        Logger.log("Closing About Device Window\n")
                     },
                 ) {
                     AboutView()
                 }
             }
         }
+        Logger.log("Desktop app is running...\n")
     }
 }
