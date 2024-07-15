@@ -11,24 +11,24 @@ import uz.otamurod.organize.presentation.Screen
 
 @Composable
 fun AppNavHost(
-  navController: NavHostController,
-  modifier: Modifier = Modifier,
+    navController: NavHostController,
+    modifier: Modifier = Modifier,
 ) {
-  NavHost(
-    navController = navController,
-    startDestination = Screen.Reminders.route,
-    modifier = modifier,
-  ) {
-    composable(Screen.Reminders.route) {
-      RemindersView(
-        onAboutButtonClick = { navController.navigate(Screen.AboutDevice.route) }
-      )
+    NavHost(
+        navController = navController,
+        startDestination = Screen.Reminders.route,
+        modifier = modifier,
+    ) {
+        composable(Screen.Reminders.route) {
+            RemindersView(
+                onAboutButtonClick = { navController.navigate(Screen.AboutDevice.route) }
+            )
+        }
+        
+        composable(Screen.AboutDevice.route) {
+            AboutView(
+                onUpButtonClick = { navController.popBackStack() }
+            )
+        }
     }
-
-    composable(Screen.AboutDevice.route) {
-      AboutView(
-        onUpButtonClick = { navController.popBackStack() }
-      )
-    }
-  }
 }
