@@ -7,39 +7,45 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import uz.otamurod.organize.presentation.Screen
 import ui.about.AboutView
 import ui.reminders.RemindersView
 import ui.theme.AppTheme
+import uz.otamurod.organize.Logger
+import uz.otamurod.organize.presentation.Screen
 
 fun main() {
-  return application {
-    var screenState by remember { mutableStateOf(Screen.Reminders) }
-
-    AppTheme {
-      Window(
-        title = "Organize",
-        state = rememberWindowState(width = 400.dp, height = 550.dp),
-        resizable = true,
-        onCloseRequest = ::exitApplication,
-      ) {
-        RemindersView(
-          onAboutIconClick = { screenState = Screen.AboutDevice }
-        )
-      }
-
-      if (screenState == Screen.AboutDevice) {
-        Window(
-          title = "About Device",
-          state = WindowState(width = 300.dp, height = 450.dp),
-          resizable = true,
-          onCloseRequest = {
-            screenState = Screen.Reminders
-          },
-        ) {
-          AboutView()
+    return application {
+        var screenState by remember { mutableStateOf(Screen.Reminders) }
+        
+        AppTheme {
+            Window(
+                title = "Organize",
+                state = rememberWindowState(width = 400.dp, height = 550.dp),
+                resizable = true,
+                onCloseRequest = ::exitApplication,
+            ) {
+                RemindersView(
+                    onAboutIconClick = {
+                        screenState = Screen.AboutDevice
+                        Logger.log("Navigating to About Device Window\n")
+                    }
+                )
+            }
+            
+            if (screenState == Screen.AboutDevice) {
+                Window(
+                    title = "About Device",
+                    state = WindowState(width = 300.dp, height = 450.dp),
+                    resizable = true,
+                    onCloseRequest = {
+                        screenState = Screen.Reminders
+                        Logger.log("Closing About Device Window\n")
+                    },
+                ) {
+                    AboutView()
+                }
+            }
         }
-      }
+        Logger.log("Desktop app is running...\n")
     }
-  }
 }

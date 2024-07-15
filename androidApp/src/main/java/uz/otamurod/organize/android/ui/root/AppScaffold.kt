@@ -9,14 +9,14 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun AppScaffold() {
-  val navController = rememberNavController()
-
-  Scaffold {
-    AppNavHost(
-      navController = navController,
-      modifier = Modifier
-        .fillMaxSize()
-        .padding(it)
-    )
-  }
+    val navController = rememberNavController()
+    
+    Scaffold {
+        AppNavHost(
+            navController = navController,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(it)
+        )
+    }
 }

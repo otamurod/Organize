@@ -14,48 +14,52 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import uz.otamurod.organize.Logger
 
 @Composable
 fun RemindersView(
-  onAboutButtonClick: () -> Unit,
+    onAboutButtonClick: () -> Unit,
 ) {
-  Column {
-    Toolbar(onAboutButtonClick = onAboutButtonClick)
-    ContentView()
-  }
+    Column {
+        Toolbar(onAboutButtonClick = onAboutButtonClick)
+        ContentView()
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun Toolbar(
-  onAboutButtonClick: () -> Unit,
+    onAboutButtonClick: () -> Unit,
 ) {
-  TopAppBar(
-    title = { Text(text = "Reminders") },
-    actions = {
-      IconButton(onClick = onAboutButtonClick) {
-        Icon(
-          imageVector = Icons.Outlined.Info,
-          contentDescription = "About Device Button",
-        )
-      }
-    }
-  )
+    TopAppBar(
+        title = { Text(text = "Reminders") },
+        actions = {
+            IconButton(onClick = {
+                onAboutButtonClick()
+                Logger.log("Navigating to About Device Screen")
+            }) {
+                Icon(
+                    imageVector = Icons.Outlined.Info,
+                    contentDescription = "About Device Button",
+                )
+            }
+        }
+    )
 }
 
 @Composable
 private fun ContentView() {
-  Box(
-    modifier = Modifier.fillMaxSize(),
-    contentAlignment = Alignment.Center
-  ) {
-    Text("Hello World!")
-  }
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text("Hello World!")
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun RemindersViewPreview() {
-  RemindersView {
-  }
+    RemindersView {
+    }
 }

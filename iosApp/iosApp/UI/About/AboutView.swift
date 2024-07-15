@@ -6,7 +6,7 @@ struct AboutView: View {
 
   var body: some View {
     NavigationStack {
-      Text("Hello World!")
+        AboutListView()
         .navigationTitle("About Device")
         .toolbar {
           ToolbarItem(placement: .primaryAction) {
