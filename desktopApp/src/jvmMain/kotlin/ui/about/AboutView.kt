@@ -16,6 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import kotlin.math.max
+import kotlin.math.min
 
 @Composable
 fun AboutView() {
@@ -36,30 +38,24 @@ private fun ContentView() {
 }
 
 private fun makeItems(): List<Pair<String, String>> {
-    //1
     val platform = uz.otamurod.organize.Platform()
     
-    //2
+    // Create a list of pairs
     val items = mutableListOf<Pair<String, String>>(
-        // UNCOMMENT AFTER CREATING THE PLATFORM CLASS
-
-//    Pair("Operating System", "${platform.osName} ${platform.osVersion}"),
-//    Pair("Device", platform.deviceModel),
-//    Pair("CPU", platform.cpuType)
+        Pair("Operating System", "${platform.osName} ${platform.osVersion}"),
+        Pair("Device", platform.deviceModel),
+        Pair("CPU", platform.cpuType)
     )
     
-    //3
+    // Add the display information
+    val max = max(platform.screen.width, platform.screen.height)
+    val min = min(platform.screen.width, platform.screen.height)
     
-    // UNCOMMENT AFTER CREATING THE PLATFORM CLASS
-    
-    //  val max = max(platform.screen.width, platform.screen.height)
-    //  val min = min(platform.screen.width, platform.screen.height)
-    //
-    //  var displayInfo = "${max}×${min}"
-    //  platform.screen.density?.let {
-    //    displayInfo += " ${it}x"
-    //  }
-    //  items.add(Pair("Display", displayInfo))
+    var displayInfo = "${max}×${min}"
+    platform.screen.density?.let {
+        displayInfo += " ${it}x"
+    }
+    items.add(Pair("Display", displayInfo))
     
     return items
 }
