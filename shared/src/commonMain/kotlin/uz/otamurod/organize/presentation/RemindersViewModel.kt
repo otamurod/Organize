@@ -6,7 +6,7 @@ import uz.otamurod.organize.domain.Reminder
 class RemindersViewModel : BaseViewModel() {
     private val repository = RemindersRepository()
     
-    private val reminders: List<Reminder>
+    val reminders: List<Reminder>
         get() = repository.reminders
     
     var onRemindersUpdated: ((List<Reminder>) -> Unit)? = null
