@@ -25,7 +25,7 @@ fun main() {
                 onCloseRequest = ::exitApplication,
             ) {
                 RemindersView(
-                    onAboutIconClick = {
+                    onAboutButtonClick = {
                         screenState = Screen.AboutDevice
                         Logger.log("Navigating to About Device Window\n")
                     }

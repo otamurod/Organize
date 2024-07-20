@@ -1,29 +1,33 @@
+import Shared
 import SwiftUI
 
 struct AboutView: View {
-  @Environment(\.dismiss)
-  private var dismiss
+    @Environment(\.dismiss)
+    private var dismiss
+    @StateObject private var viewModel = AboutViewModel()
 
-  var body: some View {
-    NavigationStack {
-        AboutListView()
-        .navigationTitle("About Device")
-        .toolbar {
-          ToolbarItem(placement: .primaryAction) {
-            Button {
-              dismiss()
-            } label: {
-              Text("Done")
-                .bold()
-            }
-          }
+    var body: some View {
+        NavigationStack {
+            AboutListView(items: viewModel.items)
+                .navigationTitle("About Device")
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Done")
+                                .bold()
+                        }
+                    }
+                }
         }
     }
-  }
 }
 
+extension AboutViewModel: ObservableObject {}
+
 struct AboutView_Previews: PreviewProvider {
-  static var previews: some View {
-    AboutView()
-  }
+    static var previews: some View {
+        AboutView()
+    }
 }
