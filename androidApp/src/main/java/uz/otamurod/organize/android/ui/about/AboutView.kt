@@ -21,17 +21,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import uz.otamurod.organize.Logger
-import uz.otamurod.organize.Platform
-import kotlin.math.max
-import kotlin.math.min
+import uz.otamurod.organize.presentation.AboutViewModel
 
 @Composable
 fun AboutView(
+    viewModel: AboutViewModel = AboutViewModel(),
     onUpButtonClick: () -> Unit
 ) {
     Column {
         Toolbar(onUpButtonClick = onUpButtonClick)
-        ContentView()
+        ContentView(items = viewModel.items)
     }
 }
 
@@ -57,38 +56,16 @@ private fun Toolbar(
 }
 
 @Composable
-private fun ContentView() {
-    val items = makeItems()
-    
+private fun ContentView(
+    items: List<AboutViewModel.RowItem>
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
     ) {
         items(items) { row ->
-            RowView(title = row.first, subtitle = row.second)
+            RowView(title = row.title, subtitle = row.subtitle)
         }
     }
-}
-
-private fun makeItems(): List<Pair<String, String>> {
-    val platform = Platform()
-    
-    val items = mutableListOf(
-        Pair("Operating System", "${platform.osName} ${platform.osVersion}"),
-        Pair("Device", platform.deviceModel),
-        Pair("CPU", platform.cpuType)
-    )
-    
-    val max = max(platform.screen.width, platform.screen.height)
-    val min = min(platform.screen.width, platform.screen.height)
-    
-    var displayInfo = "${max}×${min}"
-    
-    platform.screen.density?.let {
-        displayInfo += " ${it}x"
-    }
-    items.add(Pair("Display", displayInfo))
-    
-    return items
 }
 
 @Composable
