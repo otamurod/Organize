@@ -17,6 +17,7 @@
 		927C872A2C4B578E001B3B1C /* RemindersViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C87292C4B578E001B3B1C /* RemindersViewModelWrapper.swift */; };
 		927C872C2C4B5A05001B3B1C /* ReminderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C872B2C4B5A05001B3B1C /* ReminderItem.swift */; };
 		927C872E2C4B5AA9001B3B1C /* NewReminderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C872D2C4B5AA9001B3B1C /* NewReminderTextField.swift */; };
+		92AA01912C4B6AB800A48DD0 /* RemindersRepository.kt in Resources */ = {isa = PBXBuildFile; fileRef = 92AA01902C4B6AB800A48DD0 /* RemindersRepository.kt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +46,7 @@
 		927C87292C4B578E001B3B1C /* RemindersViewModelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewModelWrapper.swift; sourceTree = "<group>"; };
 		927C872B2C4B5A05001B3B1C /* ReminderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderItem.swift; sourceTree = "<group>"; };
 		927C872D2C4B5AA9001B3B1C /* NewReminderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderTextField.swift; sourceTree = "<group>"; };
+		92AA01902C4B6AB800A48DD0 /* RemindersRepository.kt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RemindersRepository.kt; path = ../../../../shared/src/commonMain/kotlin/uz/otamurod/organize/data/RemindersRepository.kt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				301A78A12A96030E00D37A08 /* RemindersView.swift */,
+				92AA01902C4B6AB800A48DD0 /* RemindersRepository.kt */,
 				927C87292C4B578E001B3B1C /* RemindersViewModelWrapper.swift */,
 				927C872B2C4B5A05001B3B1C /* ReminderItem.swift */,
 				927C872D2C4B5AA9001B3B1C /* NewReminderTextField.swift */,
@@ -194,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92AA01912C4B6AB800A48DD0 /* RemindersRepository.kt in Resources */,
 				301A789A2A96023200D37A08 /* LaunchScreen.storyboard in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
