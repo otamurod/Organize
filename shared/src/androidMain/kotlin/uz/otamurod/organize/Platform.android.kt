@@ -13,9 +13,10 @@ actual class Platform actual constructor() {
     
     actual val deviceModel = "${Build.MANUFACTURER} ${Build.MODEL}"
     
-    actual val cpuType = Build.SUPPORTED_ABIS.firstOrNull() ?: "---"
+    actual val cpuType = Build.SUPPORTED_ABIS?.firstOrNull() ?: "---"
     
-    actual val screen = ScreenInfo()
+    actual val screen: ScreenInfo
+        get() = ScreenInfo()
     
     actual fun logSystemInfo() {
         Log.d("Platform", deviceInfo)

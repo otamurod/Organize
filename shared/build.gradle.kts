@@ -41,7 +41,7 @@ kotlin {
         }
         val androidUnitTest by getting {
             dependencies {
-                implementation(kotlin("test-junit"))
+                // implementation(kotlin("test-junit"))
                 implementation(libs.junit)
             }
         }
