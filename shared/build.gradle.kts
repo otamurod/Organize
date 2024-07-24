@@ -28,6 +28,7 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation(kotlin("test-annotations-common"))
             }
         }
         
@@ -40,7 +41,7 @@ kotlin {
         }
         val androidUnitTest by getting {
             dependencies {
-                implementation(kotlin("test-junit"))
+                // implementation(kotlin("test-junit"))
                 implementation(libs.junit)
             }
         }
@@ -69,6 +70,12 @@ kotlin {
             dependsOn(commonMain)
             dependencies {
                 implementation(compose.desktop.common)
+            }
+        }
+        val desktopTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
+                implementation(libs.junit)
             }
         }
     }
