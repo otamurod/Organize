@@ -18,7 +18,18 @@ kotlin {
                 implementation(compose.material3)
             }
         }
+        
+        val jvmTest by getting {
+            dependencies {
+                implementation(compose.desktop.uiTestJUnit4)
+                implementation(compose.desktop.currentOs)
+            }
+        }
     }
+}
+
+compose {
+    kotlinCompilerPlugin.set("androidx.compose.compiler:compiler:1.5.3")
 }
 
 compose.desktop {
