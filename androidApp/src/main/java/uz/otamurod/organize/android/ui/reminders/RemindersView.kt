@@ -38,6 +38,8 @@ import androidx.compose.ui.input.key.KeyEvent
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onPreviewKeyEvent
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -71,7 +73,8 @@ private fun Toolbar(
             IconButton(onClick = {
                 onAboutButtonClick()
                 Logger.log("Navigating to About Device Screen")
-            }) {
+            },
+                modifier = Modifier.semantics { contentDescription = "aboutButton" }) {
                 Icon(
                     imageVector = Icons.Outlined.Info,
                     contentDescription = "About Device Button",
