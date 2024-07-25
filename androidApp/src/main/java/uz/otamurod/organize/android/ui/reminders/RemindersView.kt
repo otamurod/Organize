@@ -47,13 +47,14 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.koin.androidx.compose.koinViewModel
 import uz.otamurod.organize.Logger
 import uz.otamurod.organize.domain.Reminder
 import uz.otamurod.organize.presentation.RemindersViewModel
 
 @Composable
 fun RemindersView(
-    viewModel: RemindersViewModel = RemindersViewModel(),
+    viewModel: RemindersViewModel = koinViewModel(),
     onAboutButtonClick: () -> Unit,
 ) {
     Column {

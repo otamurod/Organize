@@ -15,11 +15,11 @@ object Modules {
     
     val repositories = module {
         factory { RemindersRepository() }
-        factory { AboutViewModel(get()) }
     }
     
     val viewModels = module {
         factory { RemindersViewModel(get()) }
+        factory { AboutViewModel(get()) }
     }
 }
 
