@@ -60,6 +60,9 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
     
+    // Settings
+    implementation(libs.multiplatform.settings)
+    
     // Test
     debugImplementation(libs.androidx.ui.test.manifest)
     androidTestImplementation(platform(libs.androidx.compose.bom))

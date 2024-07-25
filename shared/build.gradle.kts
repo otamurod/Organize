@@ -26,6 +26,7 @@ kotlin {
                 implementation(libs.koin.core)
                 // Settings
                 implementation(libs.multiplatform.settings)
+                implementation(libs.kotlinx.datetime)
             }
         }
         val commonTest by getting {

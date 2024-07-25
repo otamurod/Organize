@@ -1,12 +1,33 @@
 package uz.otamurod.organize.presentation
 
+import com.russhwolf.settings.Settings
+import kotlinx.datetime.Clock
+import uz.otamurod.organize.DateFormatter
 import uz.otamurod.organize.Platform
 import kotlin.math.max
 import kotlin.math.min
 
 class AboutViewModel(
-    platform: Platform
+    platform: Platform,
+    settings: Settings
 ) : BaseViewModel() {
+    val firstOpening: String
+    
+    init {
+        val timestampKey = "FIRST_OPENING_TIMESTAMP"
+        
+        val savedValue = settings.getLongOrNull(timestampKey)
+        
+        firstOpening = if (savedValue == null) {
+            val time = Clock.System.now().epochSeconds - 1
+            settings.putLong(timestampKey, time)
+            
+            DateFormatter.formatEpoch(time)
+        } else {
+            DateFormatter.formatEpoch(savedValue)
+        }
+    }
+    
     val items: List<RowItem> = makeRowItems(platform)
     
     private fun makeRowItems(platform: Platform): List<RowItem> {

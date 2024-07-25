@@ -30,7 +30,7 @@ class OrganizeApp : Application() {
                     RemindersViewModel(get())
                 }
                 viewModel {
-                    AboutViewModel(get())
+                    AboutViewModel(get(), get())
                 }
             }
         )

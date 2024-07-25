@@ -19,7 +19,7 @@ object Modules {
     
     val viewModels = module {
         factory { RemindersViewModel(get()) }
-        factory { AboutViewModel(get()) }
+        factory { AboutViewModel(get(), get()) }
     }
 }
 
