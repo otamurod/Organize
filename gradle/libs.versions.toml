@@ -14,6 +14,7 @@ compose-bom = "2023.08.00"
 viewmodel-ktx = "2.8.3"
 test-runner = "1.5.2"
 koin = "3.5.3"
+settings = "1.1.1"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
@@ -41,6 +42,7 @@ koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin"
 koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+multiplatform-settings = { group = "com.russhwolf", name = "multiplatform-settings", version.ref = "settings" }
 
 [plugins]
 

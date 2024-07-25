@@ -24,6 +24,8 @@ kotlin {
             dependencies {
                 implementation(compose.runtime)
                 implementation(libs.koin.core)
+                // Settings
+                implementation(libs.multiplatform.settings)
             }
         }
         val commonTest by getting {
@@ -39,6 +41,8 @@ kotlin {
             dependencies {
                 implementation(libs.androidx.annotation)
                 implementation(libs.androidx.lifecycle.viewmodel.ktx)
+                // Settings
+                implementation(libs.multiplatform.settings)
             }
         }
         val androidUnitTest by getting {

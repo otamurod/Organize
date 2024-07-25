@@ -23,6 +23,8 @@ object Modules {
     }
 }
 
+expect val platformModule: Module
+
 fun initKoin(
     appModule: Module = module { },
     coreModule: Module = Modules.core,
@@ -33,6 +35,7 @@ fun initKoin(
         appModule,
         coreModule,
         repositoriesModule,
-        viewModelsModule
+        viewModelsModule,
+        platformModule
     )
 }
