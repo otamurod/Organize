@@ -8,18 +8,21 @@ struct AboutView: View {
 
     var body: some View {
         NavigationStack {
-            AboutListView(items: viewModel.items)
-                .navigationTitle("About Device")
-                .toolbar {
-                    ToolbarItem(placement: .primaryAction) {
-                        Button {
-                            dismiss()
-                        } label: {
-                            Text("Done")
-                                .bold()
-                        }
+            AboutListView(
+                items: viewModel.items,
+                footer: "This page was first opened on \(viewModel.firstOpening)"
+            )
+            .navigationTitle("About Device")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Done")
+                            .bold()
                     }
                 }
+            }
         }
     }
 }
