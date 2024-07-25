@@ -3,8 +3,9 @@ package uz.otamurod.organize.presentation
 import uz.otamurod.organize.data.RemindersRepository
 import uz.otamurod.organize.domain.Reminder
 
-class RemindersViewModel : BaseViewModel() {
-    private val repository = RemindersRepository()
+class RemindersViewModel(
+    private val repository: RemindersRepository
+) : BaseViewModel() {
     
     internal val reminders: List<Reminder>
         get() = repository.reminders

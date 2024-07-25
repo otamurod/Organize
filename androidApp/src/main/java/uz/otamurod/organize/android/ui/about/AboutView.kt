@@ -20,12 +20,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.koin.androidx.compose.koinViewModel
 import uz.otamurod.organize.Logger
 import uz.otamurod.organize.presentation.AboutViewModel
 
 @Composable
 fun AboutView(
-    viewModel: AboutViewModel = AboutViewModel(),
+    viewModel: AboutViewModel = koinViewModel(),
     onUpButtonClick: () -> Unit
 ) {
     Column {

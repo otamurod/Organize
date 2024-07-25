@@ -1,6 +1,10 @@
 package uz.otamurod.organize
 
+import org.koin.core.context.stopKoin
+import org.koin.test.KoinTest
+import org.koin.test.inject
 import uz.otamurod.organize.presentation.RemindersViewModel
+import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertTrue
@@ -11,13 +15,13 @@ import kotlin.test.assertTrue
  * Date: 22.07.2024
  */
 
-class RemindersViewModelTest {
+class RemindersViewModelTest : KoinTest {
     
-    private lateinit var viewModel: RemindersViewModel
+    private val viewModel: RemindersViewModel by inject()
     
     @BeforeTest
     fun setUp() {
-        viewModel = RemindersViewModel()
+        initKoin()
     }
     
     @Test
@@ -33,5 +37,10 @@ class RemindersViewModelTest {
             actual = count == 1,
             message = "Reminder with title $title was not created"
         )
+    }
+    
+    @AfterTest
+    fun tearDown() {
+        stopKoin()
     }
 }

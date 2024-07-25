@@ -7,13 +7,20 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import org.koin.core.Koin
 import ui.about.AboutView
 import ui.reminders.RemindersView
 import ui.theme.AppTheme
 import uz.otamurod.organize.Logger
+import uz.otamurod.organize.initKoin
 import uz.otamurod.organize.presentation.Screen
 
+lateinit var koin: Koin
+    private set
+
 fun main() {
+    koin = initKoin().koin
+    
     return application {
         var screenState by remember { mutableStateOf(Screen.Reminders) }
         

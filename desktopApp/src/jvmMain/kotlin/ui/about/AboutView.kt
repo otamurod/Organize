@@ -21,9 +21,10 @@ import androidx.compose.ui.unit.dp
 import uz.otamurod.organize.presentation.AboutViewModel
 import kotlin.math.max
 import kotlin.math.min
+import koin
 
 @Composable
-fun AboutView(viewModel: AboutViewModel = AboutViewModel()) {
+fun AboutView(viewModel: AboutViewModel = koin.get()) {
     ContentView(items = viewModel.items)
 }
 
