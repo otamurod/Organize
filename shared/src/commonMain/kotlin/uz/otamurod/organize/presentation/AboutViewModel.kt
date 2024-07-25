@@ -4,9 +4,9 @@ import uz.otamurod.organize.Platform
 import kotlin.math.max
 import kotlin.math.min
 
-class AboutViewModel : BaseViewModel() {
-    private val platform = Platform()
-    
+class AboutViewModel(
+    private val platform: Platform
+) : BaseViewModel() {
     val items: List<RowItem> = makeRowItems(platform)
     
     private fun makeRowItems(platform: Platform): List<RowItem> {
