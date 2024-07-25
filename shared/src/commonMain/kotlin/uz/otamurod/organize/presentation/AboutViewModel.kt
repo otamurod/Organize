@@ -5,7 +5,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 class AboutViewModel(
-    private val platform: Platform
+    platform: Platform
 ) : BaseViewModel() {
     val items: List<RowItem> = makeRowItems(platform)
     
