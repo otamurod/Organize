@@ -1,5 +1,6 @@
 package uz.otamurod.organize.presentation
 
+import kotlinx.coroutines.flow.StateFlow
 import uz.otamurod.organize.data.RemindersRepository
 import uz.otamurod.organize.domain.Reminder
 
@@ -7,25 +8,20 @@ class RemindersViewModel(
     private val repository: RemindersRepository
 ) : BaseViewModel() {
     
-    internal val reminders: List<Reminder>
-        get() = repository.reminders
-    
-    var onRemindersUpdated: ((List<Reminder>) -> Unit)? = null
-        set(value) {
-            field = value
-            onRemindersUpdated?.invoke(reminders)
-        }
+    val reminders: StateFlow<List<Reminder>> = repository.reminders
     
     fun createReminder(title: String) {
         val trimmed = title.trim()
         if (trimmed.isNotEmpty()) {
             repository.createReminder(title = trimmed)
-            onRemindersUpdated?.invoke(reminders)
         }
     }
     
     fun markReminder(id: String, isCompleted: Boolean) {
         repository.markReminder(id = id, isCompleted = isCompleted)
-        onRemindersUpdated?.invoke(reminders)
+    }
+    
+    fun deleteReminder(reminder: Reminder) {
+        repository.deleteReminder(reminder)
     }
 }

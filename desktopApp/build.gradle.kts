@@ -30,7 +30,7 @@ kotlin {
 }
 
 compose {
-    kotlinCompilerPlugin.set("androidx.compose.compiler:compiler:1.5.3")
+    kotlinCompilerPlugin.set("androidx.compose.compiler:compiler:1.5.12")
 }
 
 compose.desktop {

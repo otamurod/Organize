@@ -2,6 +2,7 @@ package uz.otamurod.organize
 
 import android.util.Log
 
+@Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
 actual class Logger {
     actual companion object {
         actual fun log(

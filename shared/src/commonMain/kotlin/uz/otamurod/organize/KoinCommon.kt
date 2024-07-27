@@ -14,14 +14,18 @@ object Modules {
     }
     
     val repositories = module {
-        factory { RemindersRepository() }
+        factory { RemindersRepository(get()) }
     }
     
     val viewModels = module {
         factory { RemindersViewModel(get()) }
-        factory { AboutViewModel(get()) }
+        factory { AboutViewModel(get(), get()) }
     }
 }
+
+expect val platformModule: Module
+
+expect val database: Module
 
 fun initKoin(
     appModule: Module = module { },
@@ -33,6 +37,8 @@ fun initKoin(
         appModule,
         coreModule,
         repositoriesModule,
-        viewModelsModule
+        viewModelsModule,
+        platformModule,
+        database
     )
 }

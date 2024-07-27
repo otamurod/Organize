@@ -16,6 +16,7 @@ import platform.UIKit.UIUserInterfaceIdiomPhone
 import platform.posix.uname
 import platform.posix.utsname
 
+@Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
 @kotlinx.cinterop.ExperimentalForeignApi
 @kotlin.experimental.ExperimentalNativeApi
 actual class Platform actual constructor() {

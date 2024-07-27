@@ -1,3 +1,4 @@
+import Shared
 import SwiftUI
 
 struct RemindersView: View {
@@ -13,6 +14,26 @@ struct RemindersView: View {
                             .onTapGesture {
                                 withAnimation {
                                     viewModelWrapper.viewModel.markReminder(id: item.id, isCompleted: !item.isCompleted)
+                                }
+                            }.contextMenu {
+                                Button(role: .destructive) {
+                                    withAnimation {
+                                        viewModelWrapper.viewModel.deleteReminder(reminder: item)
+                                    }
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
+                            .swipeActions(
+                                edge: .trailing,
+                                allowsFullSwipe: true
+                            ) {
+                                Button(role: .destructive) {
+                                    withAnimation {
+                                        viewModelWrapper.viewModel.deleteReminder(reminder: item)
+                                    }
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
                                 }
                             }
                     }

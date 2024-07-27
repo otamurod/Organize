@@ -2,6 +2,8 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("org.jetbrains.compose")
+    alias(libs.plugins.room)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -16,6 +18,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "Shared"
+            linkerOpts.add("-lsqlite3")
         }
     }
     
@@ -24,6 +27,11 @@ kotlin {
             dependencies {
                 implementation(compose.runtime)
                 implementation(libs.koin.core)
+                // Settings
+                implementation(libs.multiplatform.settings)
+                implementation(libs.kotlinx.datetime)
+                implementation(libs.room.runtime)
+                implementation(libs.sqlite.bundled)
             }
         }
         val commonTest by getting {
@@ -39,12 +47,15 @@ kotlin {
             dependencies {
                 implementation(libs.androidx.annotation)
                 implementation(libs.androidx.lifecycle.viewmodel.ktx)
+                // Settings
+                implementation(libs.multiplatform.settings)
             }
         }
         val androidUnitTest by getting {
             dependencies {
                 // implementation(kotlin("test-junit"))
                 implementation(libs.junit)
+                implementation(libs.androidx.test.core.ktx)
             }
         }
         
@@ -98,6 +109,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
+}
+dependencies {
+    implementation(libs.androidx.core.ktx)
+    ksp(libs.room.compiler)
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile>().configureEach {

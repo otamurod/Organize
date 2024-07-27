@@ -15,7 +15,9 @@ final class Koin {
 
     static func start() {
         if instance.core == nil {
-            let app = KoinIOS.shared.initialize()
+            let app = KoinIOS.shared.initialize(
+                userDefaults: UserDefaults.standard
+            )
             instance.core = app.koin
         }
         if instance.core == nil {
