@@ -19,6 +19,7 @@
 		927C872A2C4B578E001B3B1C /* RemindersViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C87292C4B578E001B3B1C /* RemindersViewModelWrapper.swift */; };
 		927C872C2C4B5A05001B3B1C /* ReminderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C872B2C4B5A05001B3B1C /* ReminderItem.swift */; };
 		927C872E2C4B5AA9001B3B1C /* NewReminderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C872D2C4B5AA9001B3B1C /* NewReminderTextField.swift */; };
+		929C3F212C548F68001BB059 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 929C3F202C548F68001BB059 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		927C87292C4B578E001B3B1C /* RemindersViewModelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewModelWrapper.swift; sourceTree = "<group>"; };
 		927C872B2C4B5A05001B3B1C /* ReminderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderItem.swift; sourceTree = "<group>"; };
 		927C872D2C4B5AA9001B3B1C /* NewReminderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReminderTextField.swift; sourceTree = "<group>"; };
+		929C3F202C548F68001BB059 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929C3F212C548F68001BB059 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +156,7 @@
 		7555FFB0242A642200829871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				929C3F202C548F68001BB059 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -5,6 +5,7 @@ import android.os.Build
 import android.util.Log
 import kotlin.math.round
 
+@Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
 actual class Platform actual constructor() {
     actual val osName = "Android"
     

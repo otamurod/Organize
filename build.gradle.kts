@@ -1,7 +1,7 @@
 plugins {
     val agpVersion = "8.2.2"
-    val kotlinVersion = "1.9.10"
-    val jetbrainsComposeVersion = "1.5.1"
+    val kotlinVersion = "1.9.23"
+    val jetbrainsComposeVersion = "1.6.11"
     
     id("com.android.application").version(agpVersion).apply(false)
     id("com.android.library").version(agpVersion).apply(false)
